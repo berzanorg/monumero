@@ -1,1 +1,25 @@
-{}
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjM4MTA2NiwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweGRmRTQyYmRmMUEwM2I3N0Y4RDdhNTdBOTEyZkRhNTI0ZEE0RjdmODMifQ",
+    "payload": "eyJkb21haW4iOiJtb251bWVyby5wYWdlcy5kZXYifQ",
+    "signature": "MHg1NzJjZWY3Yjg2YjhjMTUwN2ZjY2Y4MzJjYzA1YjhkZGFjMTE3MzdiNjc5ZmZhN2IwM2VkMmQ1ZTMzNmMwODgwNWVkMmQ5NThmNzM3MDBkOTBkNGE1YzRhNmMxNzQwM2FiYjk2Y2JiNmY0OGZmNDljZmY5NTU3M2Q1M2M1MGJkNTFi"
+  },
+  "frame": {
+    "version": "1",
+    "name": "Monumero",
+    "iconUrl": "https://monumero.pages.dev/logo.png",
+    "splashImageUrl": "https://monumero.pages.dev/splash.png",
+    "splashBackgroundColor": "#51fd00",
+    "homeUrl": "https://monumero.pages.dev",
+    "subtitle": "Fully on-chain Monad numbers!",
+    "description": "Mint your fully on-chain number NFT on Monad Testnet.",
+    "screenshotUrls": [],
+    "primaryCategory": "art-creativity",
+    "tags": ["monumero", "monad", "nft", "mint"],
+    "heroImageUrl": "https://monumero.pages.dev/og.png",
+    "tagline": "Fully on-chain Monad numbers!",
+    "ogTitle": "Monumero",
+    "ogDescription": "Mint your fully on-chain number NFT on Monad Testnet.",
+    "ogImageUrl": "https://monumero.pages.dev/og.png"
+  }
+}
