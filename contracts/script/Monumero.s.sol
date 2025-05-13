@@ -12,7 +12,7 @@ contract MonumeroScript is Script {
     function run() public {
         vm.startBroadcast();
 
-        monumero = new Monumero();
+        monumero = new Monumero(vm.envAddress("BERZAN"));
 
         vm.stopBroadcast();
     }
