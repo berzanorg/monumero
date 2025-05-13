@@ -33,6 +33,8 @@ contract Monumero is ERC721Enumerable {
         require(tokenId < 1_000_000);
         _mint(msg.sender, tokenId);
         _mintedBy[msg.sender] = tokenId;
+        (bool sent,) = payable(_berzan).call{value: 1 ether}("");
+        require(sent);
     }
 
     function _baseURI() internal pure override returns (string memory) {
