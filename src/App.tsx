@@ -1,23 +1,29 @@
-import { sdk } from "@farcaster/frame-sdk";
-import { useEffect } from "react";
-import { useAccount, useConnect, useSignMessage } from "wagmi";
+import { sdk } from '@farcaster/frame-sdk'
+import { useEffect } from 'react'
+import { useAccount, useConnect, useSignMessage } from 'wagmi'
 
 function App() {
   useEffect(() => {
-    sdk.actions.ready();
-  }, []);
+    sdk.actions.ready()
+  }, [])
 
   return (
     <>
-      <h1>Monumero</h1>
-      <ConnectMenu />
+      <header className='sticky top-0 flex items-center justify-between h-16'>
+        <a className='text-xl font-bold' href='/'>
+          Monumero
+        </a>
+      </header>
+      <main className='flex flex-col px-4'>
+        <ConnectMenu />
+      </main>
     </>
-  );
+  )
 }
 
 function ConnectMenu() {
-  const { isConnected, address } = useAccount();
-  const { connect, connectors } = useConnect();
+  const { isConnected, address } = useAccount()
+  const { connect, connectors } = useConnect()
 
   if (isConnected) {
     return (
@@ -26,23 +32,23 @@ function ConnectMenu() {
         <div>{address}</div>
         <SignButton />
       </>
-    );
+    )
   }
 
   return (
-    <button type="button" onClick={() => connect({ connector: connectors[0] })}>
+    <button type='button' onClick={() => connect({ connector: connectors[0] })}>
       Connect
     </button>
-  );
+  )
 }
 
 function SignButton() {
-  const { signMessage, isPending, data, error } = useSignMessage();
+  const { signMessage, isPending, data, error } = useSignMessage()
 
   return (
     <>
-      <button type="button" onClick={() => signMessage({ message: "hello world" })} disabled={isPending}>
-        {isPending ? "Signing..." : "Sign message"}
+      <button type='button' onClick={() => signMessage({ message: 'hello world' })} disabled={isPending}>
+        {isPending ? 'Signing...' : 'Sign message'}
       </button>
       {data && (
         <>
@@ -57,7 +63,7 @@ function SignButton() {
         </>
       )}
     </>
-  );
+  )
 }
 
-export default App;
+export default App
