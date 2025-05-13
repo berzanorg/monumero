@@ -51,10 +51,18 @@ contract Monumero is ERC721Enumerable {
                         '{"name": "Monumero',
                         " #",
                         number,
-                        '","description": "Fully on-chain Monad Testnet number minted on Farcaster.", "image": "data:image/svg+xml;base64,',
-                        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048" width="2048" height="2048"><path fill="#51fd00" d="M0 0h2048.03v2048.03H0V0Z" transform-origin="1024.03px 1024.03px"/><text x="12.147" y="-19.376" fill="#0b3800" font-family="system-ui" font-size="384" font-weight="700" style="white-space:pre" text-anchor="middle"><tspan x="1024.05" y="1169.63" text-decoration="overline solid color(srgb 1 1 1/.8)" word-spacing="0">#',
+                        '","description": "Fully on-chain number minted on Farcaster.", ',
+                        '"attributes": [{"trait_type": "Number", "value": "',
                         number,
-                        "</tspan></text></svg>" '"}'
+                        '"}], "image": "data:image/svg+xml;base64,',
+                        Base64.encode(
+                            abi.encodePacked(
+                                "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2048 2048' width='2048' height='2048'><path fill='#51fd00' d='M0 0h2048.03v2048.03H0V0Z' transform-origin='1024.03px 1024.03px'/><text x='12.147' y='-19.376' fill='#0b3800' font-family='system-ui' font-size='384' font-weight='700' style='white-space:pre' text-anchor='middle'><tspan x='1024.05' y='1169.63' text-decoration='overline solid color(srgb 1 1 1/.8)' word-spacing='0'>#",
+                                number,
+                                "</tspan></text></svg>"
+                            )
+                        ),
+                        '"}'
                     )
                 )
             )
