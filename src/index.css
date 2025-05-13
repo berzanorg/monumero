@@ -1,67 +1,20 @@
-:root {
-  color-scheme: only light;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-* {
-  margin: 0;
-}
+@import 'tailwindcss';
 
 body {
   -webkit-font-smoothing: antialiased;
-  line-height: 1.5;
-  font-family: system-ui;
-  background-color: #51fd00;
-  color: #0b3800;
+  @apply flex flex-col min-h-svh bg-[#51fd00] text-[#0b3800];
 }
 
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-
-/* 9. Improve line wrapping */
-p {
-  text-wrap: pretty;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  text-wrap: balance;
-}
-
-/*
-  10. Create a root stacking context
-*/
 #root {
-  isolation: isolate;
+  @apply flex flex-col flex-1 items-center gap-8;
+}
+
+@theme {
+  --font-sans: system-ui;
+}
+
+@layer components {
+  .logo {
+    background: url(/favicon.svg);
+  }
 }
