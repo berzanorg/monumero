@@ -8,7 +8,7 @@ Mint your fully on-chain number NFT on Monad Testnet.
 
 ## Contract Address
 
-Monumero is deployed at: [`0x4c762d5eB047c1d551636f79c621430d9cc013E8`](https://testnet.monadexplorer.com/token/0x4c762d5eB047c1d551636f79c621430d9cc013E8)
+Monumero is deployed at: [`0x5e54469F15372f077C88c2488474f6E04da1C8cc`](https://testnet.monadexplorer.com/token/0x5e54469F15372f077C88c2488474f6E04da1C8cc)
 
 ## Fully on-chain arts
 
