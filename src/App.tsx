@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <div>Mini App + Vite + TS + React + Wagmi</div>
+      <h1>Monumero</h1>
       <ConnectMenu />
     </>
   );
