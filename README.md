@@ -1,20 +1,9 @@
-This is a [Vite](https://vitejs.dev) project bootstrapped with [`@farcaster/create-mini-app`](https://github.com/farcasterxyz/frames/tree/main/packages/create-mini-app).
+# Monumero
 
-## `farcaster.json`
+Mint your fully on-chain number NFT on Monad Testnet.
 
-The `/.well-known/farcaster.json` is served from the [public
-directory](https://vite.dev/guide/assets) and can be updated by editing
-`./public/.well-known/farcaster.json`.
+![Monumero](/public/og.png)
 
-You can also use the `public` directory to serve a static image for `splashBackgroundImageUrl`.
+> This is a [Mini App](https://miniapps.farcaster.xyz) project for [Farcaster](https://farcaster.xyz) on [Monad Testnet](https://monad.xyz).
 
-## Frame Embed
-
-Add a the `fc:frame` in `index.html` to make your root app URL sharable in feeds:
-
-```html
-  <head>
-    <!--- other tags --->
-    <meta name="fc:frame" content='{"version":"next","imageUrl":"https://placehold.co/900x600.png?text=Frame%20Image","button":{"title":"Open","action":{"type":"launch_frame","name":"App Name","url":"https://app.com"}}}' /> 
-  </head>
-```
+Built and designed by [@berzanorg](https://x.com/berzanorg) in Korea.
