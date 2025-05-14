@@ -43,7 +43,7 @@ function App() {
     },
   })
 
-  const { data: totalSupply } = useReadContract({
+  const { data: totalSupply, refetch: refetchTotalSupply } = useReadContract({
     address: '0x201DbdC89D5C5CE42c4E77F0D327F3F4B6F6746A',
     abi: [
       {
@@ -59,6 +59,13 @@ function App() {
   })
 
   useEffect(() => {
+    if (totalSupply) return
+    setInterval(() => {
+      refetchTotalSupply()
+    }, 7000)
+  }, [totalSupply])
+
+  useEffect(() => {
     console.log(3)
   }, [isError])
 
@@ -66,6 +73,7 @@ function App() {
     if (!txId) return
     setTimeout(() => {
       refetch()
+      refetchTotalSupply()
     }, 1000)
 
     setTimeout(() => {
