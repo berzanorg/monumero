@@ -11,7 +11,7 @@ function App() {
     <>
       <header className='sticky top-0 flex items-center justify-between h-16'>
         <a className='text-xl font-bold' href='/'>
-          Monumero
+          MoMoney
         </a>
       </header>
       <main className='flex flex-col px-4'>
