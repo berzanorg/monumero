@@ -1,22 +1,14 @@
-# Monumero
+# MoMoney
 
-Mint your fully on-chain number NFT on Monad Testnet.
+MoMoney more problems!
 
-![Monumero](/public/og.png)
+> MoMoney is the first pure on-chain NFT experiment on Monad Testnet with all the images and its metadata dynamically generated.
 
-> This is a [Mini App](https://miniapps.farcaster.xyz) project for [Farcaster](https://farcaster.xyz) on [Monad Testnet](https://monad.xyz).
+> To mint a MoMoney you must use our [Farcaster Mini App](https://miniapps.farcaster.xyz) called [MoMoney](https://momoney.pages.dev).
 
-## Contract Address
+> [`0x201DbdC89D5C5CE42c4E77F0D327F3F4B6F6746A`](https://testnet.monadexplorer.com/token/0x201DbdC89D5C5CE42c4E77F0D327F3F4B6F6746A)
 
-Monumero is deployed at: [`0x5e54469F15372f077C88c2488474f6E04da1C8cc`](https://testnet.monadexplorer.com/token/0x5e54469F15372f077C88c2488474f6E04da1C8cc)
-
-## Fully on-chain arts
-
-Each NFT has a unique image and metadata based on its token ID.
-
-**Example of Monumero #20:**
-
-![Monumero](/public/nft.svg)
+![MoMoney](/public/diamond.svg)
 
 ## Creator
 
