@@ -1,25 +1,25 @@
 {
   "accountAssociation": {
     "header": "eyJmaWQiOjM4MTA2NiwidHlwZSI6ImN1c3RvZHkiLCJrZXkiOiIweGRmRTQyYmRmMUEwM2I3N0Y4RDdhNTdBOTEyZkRhNTI0ZEE0RjdmODMifQ",
-    "payload": "eyJkb21haW4iOiJtb251bWVyby5wYWdlcy5kZXYifQ",
-    "signature": "MHg1NzJjZWY3Yjg2YjhjMTUwN2ZjY2Y4MzJjYzA1YjhkZGFjMTE3MzdiNjc5ZmZhN2IwM2VkMmQ1ZTMzNmMwODgwNWVkMmQ5NThmNzM3MDBkOTBkNGE1YzRhNmMxNzQwM2FiYjk2Y2JiNmY0OGZmNDljZmY5NTU3M2Q1M2M1MGJkNTFi"
+    "payload": "eyJkb21haW4iOiJtb21vbmV5LnBhZ2VzLmRldiJ9",
+    "signature": "MHg3ZWQ3MDhjNTZkNjMwYTdlZWNkMDcxYjIzYzlmY2U0ZjNjNjZmZTQ4OGZlOGE2MWY3MDJhZmYzNGVjOTk3Y2FkMTQzODJjMTkzN2MxNTIxOTllOGRlNGFjNjY2NDY3MTM3NTdjODkyOGExMzQ0ODY2ZTBhNGUzZjUyMTE1NmJjMzFi"
   },
   "frame": {
     "version": "1",
-    "name": "Monumero",
-    "iconUrl": "https://monumero.pages.dev/logo.png",
-    "splashImageUrl": "https://monumero.pages.dev/splash.png",
+    "name": "MoMoney",
+    "iconUrl": "https://momoney.pages.dev/logo.png",
+    "splashImageUrl": "https://momoney.pages.dev/splash.png",
     "splashBackgroundColor": "#51fd00",
-    "homeUrl": "https://monumero.pages.dev",
-    "subtitle": "Fully on-chain Monad numbers!",
-    "description": "Mint your fully on-chain number NFT on Monad Testnet.",
+    "homeUrl": "https://momoney.pages.dev",
+    "subtitle": "MoMoney more problems!",
+    "description": "MoMoney more problems!",
     "screenshotUrls": [],
     "primaryCategory": "art-creativity",
-    "tags": ["monumero", "monad", "nft", "mint"],
-    "heroImageUrl": "https://monumero.pages.dev/og.png",
-    "tagline": "Fully on-chain Monad numbers!",
-    "ogTitle": "Monumero",
-    "ogDescription": "Mint your fully on-chain number NFT on Monad Testnet.",
-    "ogImageUrl": "https://monumero.pages.dev/og.png"
+    "tags": ["momoney", "monad", "nft", "mint"],
+    "heroImageUrl": "https://momoney.pages.dev/og.png",
+    "tagline": "MoMoney more problems!",
+    "ogTitle": "MoMoney",
+    "ogDescription": "MoMoney more problems!",
+    "ogImageUrl": "https://momoney.pages.dev/og.png"
   }
 }
