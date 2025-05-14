@@ -56,7 +56,7 @@ contract MoMoney is ERC721Enumerable {
                         '{"name": "MoMoney',
                         " #",
                         number,
-                        '","description": "The first pure on-chain NFT experiment on Monad Testnet.", ',
+                        '","description": "MoMoney more problems!", ',
                         '"attributes": [{"trait_type": "Material", "value": "',
                         material,
                         '"}], "image": "data:image/svg+xml;base64,',
