@@ -1,13 +1,25 @@
 import { sdk } from '@farcaster/frame-sdk'
 import { useEffect, useState } from 'react'
-import { useAccount, useReadContract, useWriteContract } from 'wagmi'
+import { useAccount, useConnect, useReadContract, useWriteContract } from 'wagmi'
 import { config } from './wagmi'
 import { switchChain } from 'wagmi/actions'
+import { parseEther } from 'viem'
 
 function App() {
   const { address, isConnected } = useAccount()
 
-  const { writeContract, data: txId, isPending, isSuccess } = useWriteContract()
+  const { connect, connectors } = useConnect()
+
+  useEffect(() => {
+    if (isConnected) {
+      switchChain(config, { chainId: config.chains[0].id })
+      refetch()
+    } else {
+      connect({ connector: connectors[0] })
+    }
+  }, [isConnected])
+
+  const { writeContract, data: txId } = useWriteContract()
 
   const {
     data: tokenId,
@@ -29,8 +41,21 @@ function App() {
     query: {
       enabled: !!address,
     },
-    config,
-    chainId: config.chains[0].id,
+  })
+
+  const { data: totalSupply } = useReadContract({
+    address: '0x201DbdC89D5C5CE42c4E77F0D327F3F4B6F6746A',
+    abi: [
+      {
+        type: 'function',
+        name: 'totalSupply',
+        inputs: [],
+        outputs: [{ name: '', type: 'uint256', internalType: 'uint256' }],
+        stateMutability: 'view',
+      },
+    ],
+    functionName: 'totalSupply',
+    args: [],
   })
 
   useEffect(() => {
@@ -39,18 +64,33 @@ function App() {
 
   useEffect(() => {
     if (!txId) return
-    alert('Minted!')
     setTimeout(() => {
       refetch()
     }, 1000)
+
+    setTimeout(() => {
+      refetch()
+    }, 2000)
+
+    setTimeout(() => {
+      refetch()
+    }, 3000)
+
+    setTimeout(() => {
+      refetch()
+    }, 5000)
+
+    setTimeout(() => {
+      refetch()
+    }, 10000)
+
+    setTimeout(() => {
+      refetch()
+    }, 20000)
   }, [txId])
 
   const [material, setMaterial] = useState<string>()
   const [image, setImage] = useState<any>()
-
-  useEffect(() => {
-    switchChain(config, { chainId: config.chains[0].id })
-  }, [address])
 
   useEffect(() => {
     if (!tokenId) return
@@ -62,46 +102,66 @@ function App() {
     sdk.actions.ready()
   }, [])
 
+  useEffect(() => {
+    let id: number
+    if (isConnected) {
+      clearInterval(id! && 0)
+    } else if (window.self !== window.top) {
+      id = setInterval(() => {
+        connect({ connector: connectors[0] })
+      }, 1500)
+    }
+  }, [isConnected])
+
   return (
     <>
       <main className='flex flex-col gap-6 w-full sm:max-w-xs flex-1'>
         <div className='flex-col flex gap-6 flex-1'>
-          <h1 className='font-bold text-center text-5xl'>MoMoney</h1>
+          <div className='flex flex-col gap-1.5'>
+            <h1 className='font-bold text-center text-5xl'>MoMoney</h1>
+            <p className='font-bold text-center text-2xl'>more problems!</p>
+          </div>
 
+          <h3 className='font-bold text-xl text-center'>{totalSupply ? totalSupply.toString() : '?'} / 10000 </h3>
           {!!tokenId ? (
             <div className='flex flex-col gap-4'>
               {image}
-              <h2 className='font-bold text-2xl text-center'>
-                {material} MoMoney #{tokenId.toString()}
-              </h2>
+              <h2 className='font-bold text-2xl text-center'>MoMoney #{tokenId.toString()}</h2>
+              <h3 className='font-semibold text-lg text-center'>Material: {material}</h3>
             </div>
           ) : (
-            <div className='rounded-3xl border-5 border-[#0b3800] bg-[#51fd00] text-[#0b3800] aspect-square flex flex-col items-center justify-center text-7xl'>
-              ?
+            <div className='rounded-3xl  bg-[#0b3800] text-[#51fd00] aspect-square flex flex-col items-center justify-center text-7xl'>
+              <p className='animate-spin'>?</p>
             </div>
           )}
-
-          <div>{address && address}</div>
         </div>
-
-        <button
-          disabled={!isConnected || isPending || isSuccess}
-          className='bg-[#0b3800] text-[#51fd00] font-semibold text-xl h-13 px-6 rounded-full disabled:cursor-not-allowed'
-          onClick={() => {
-            writeContract({
-              abi: [{ type: 'function', name: 'mint', inputs: [], outputs: [], stateMutability: 'payable' }],
-              address: '0x201DbdC89D5C5CE42c4E77F0D327F3F4B6F6746A',
-              functionName: 'mint',
-              args: [],
-              value: 0n,
-              chainId: config.chains[0].id,
-            })
-          }}
-        >
-          {tokenId ? 'Minted' : 'Mint'}
-        </button>
+        {isConnected ? (
+          <button
+            disabled={tokenId !== undefined || totalSupply === 10000n}
+            className='bg-[#0b3800] text-[#51fd00] font-semibold text-xl h-13 px-6 rounded-full disabled:cursor-not-allowed cursor-pointer'
+            onClick={async () => {
+              await switchChain(config, { chainId: config.chains[0].id })
+              writeContract({
+                abi: [{ type: 'function', name: 'mint', inputs: [], outputs: [], stateMutability: 'payable' }],
+                address: '0x201DbdC89D5C5CE42c4E77F0D327F3F4B6F6746A',
+                functionName: 'mint',
+                args: [],
+                value: parseEther('1'),
+              })
+            }}
+          >
+            {tokenId ? 'You Minted' : totalSupply === 10000n ? 'All Minted' : 'Mint for 1 MON'}
+          </button>
+        ) : (
+          <a
+            href='https://warpcast.com/~/mini-apps/launch?domain=momoney.pages.dev'
+            className='bg-[#0b3800] text-[#51fd00] flex justify-center items-center font-semibold text-xl h-13 px-6 rounded-full'
+          >
+            Open in Warpcast
+          </a>
+        )}
       </main>
-      <footer className='flex flex-col gap-4 w-full items-center text-center'>
+      <footer className='flex flex-col gap-12 w-full items-center text-center'>
         <div className='flex items-center gap-6'>
           <a
             href='https://magiceden.io/collections/monad-testnet/0x201DbdC89D5C5CE42c4E77F0D327F3F4B6F6746A'
@@ -134,7 +194,13 @@ function App() {
             </svg>
           </a>
         </div>
-        <p className=' font-medium'>The first pure on-chain experimental NFT on Monad Testnet.</p>
+        <p className='font-medium'>
+          The first pure on-chain experimental NFT on Monad Testnet by{' '}
+          <a href='https://x.com/berzanorg' target='_blank' className='underline'>
+            Berzan
+          </a>
+          .
+        </p>
       </footer>
     </>
   )
@@ -151,7 +217,7 @@ function getImage(tokenId: bigint) {
   const fg = tokenId < 10 ? '#00314e' : tokenId < 100 ? '#393100' : tokenId < 1000 ? '#2d2d2d' : '#0b3800'
 
   return (
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2048 2048' className='rounded-3xl border-5 border-[#0b3800]'>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2048 2048' className='rounded-3xl'>
       <path fill={bg} d='M0 0h2048v2048H0V0Z' transform-origin='1024px 1024px' />
       <text
         fill={fg}
